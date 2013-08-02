@@ -26,10 +26,11 @@ def print_version():
 
 """ prints the help usage """
 def print_usage():
-	print 'usage: grcb [-v | -h]'
+	print 'usage: grcb [-v | -h] cmd '
 	print 'Options and arguments:'
 	print '-v     : show version info'
 	print '-h     : print help / usage'
+	print 'cmd    : git command to execute across all repos in your organization'
 
 
 """ loads the configuration """

@@ -4,7 +4,8 @@
 # todo: create install script to ensure python modules are installed
 # todo: prompt for github user if config doesn't exist
 # todo: allow git command to be passed in
-# todo: remove hardcoding to config path 
+# todo: allow config to be passed in
+# todo: use map/reduce ???
 
 
 import requests, subprocess, os, sys, string, getpass, getopt
@@ -117,7 +118,7 @@ def main(args):
 	repos = get_repo_names(config['gituser'])
 
 	for repo in repos:
-		exec_git_cmd(repo, 'status')
+		exec_git_cmd(repo, sys.argv[1])
 			
 
 """ did I really put a comment here? """

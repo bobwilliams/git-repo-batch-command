@@ -1,8 +1,11 @@
 git-repo-batch-command
 ======================
 
+## What
 A simple python script to allow you to execute a git command across all your repos in an organization.  
-Why?  Because I find myself having to do this a lot in my organization with many repos :)
+
+## Why?  
+Because I find myself having to do this a lot in my organization with many repos :)
 
 
 License

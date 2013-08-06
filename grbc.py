@@ -3,7 +3,6 @@
 
 # todo: create install script to ensure python modules are installed
 # todo: prompt for github user if config doesn't exist
-# todo: allow git command to be passed in
 # todo: allow config to be passed in
 # todo: use map/reduce ???
 
@@ -15,13 +14,26 @@ try:
 except ImportError:
     import simplejson as json 
 
-
 CONFIG_LOCATION = "config.json"
+
+
+CODE={
+    'ENDC':0,  # RESET COLOR
+    'RED':31,
+    'YELLOW':33,
+    'GREEN':32,
+}
+
+def termcode(num):
+    return '\033[%sm'%num
+
+def colorstr(astr,color):
+    return termcode(CODE[color])+astr+termcode(CODE['ENDC'])
 
 
 """ prints the version """
 def print_version():
-	print 'grcb v0.1'
+	print 'grbc v0.1'
 
 
 """ prints the help usage """
@@ -93,8 +105,7 @@ def get_repo_names(gituser):
 
 """ executes the specified git command across all repos found """
 def exec_git_cmd(repo, cmd):
-	print
-	print 'repo  : ' + repo
+	print colorstr('repo  : ' + repo, 'YELLOW')
 	dirname = expanduser('~') + '/workspace/' + string.split(repo, '/')[1] + '/'
 
 	try:
@@ -107,10 +118,11 @@ def exec_git_cmd(repo, cmd):
 		(out, error) = pr.communicate()
 
 	except Exception, e:	
-		print 'error : ' + str(e)
+		print colorstr('error : ' + str(e), 'RED')
+		print
 
 	else:
-		print 'out   : ' + str(out)
+		print colorstr('out   : '	 + str(out), 'GREEN')
 
 
 """ yep, this is main() """
@@ -125,4 +137,3 @@ def main(args):
 """ did I really put a comment here? """
 if __name__ == '__main__':
 	main(sys.argv[1:])
-

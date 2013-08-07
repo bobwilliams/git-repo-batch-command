@@ -105,7 +105,7 @@ def get_repo_names(gituser):
 
 """ executes the specified git command across all repos found """
 def exec_git_cmd(repo, cmd):
-	print colorstr('repo  : ' + repo, 'YELLOW')
+	print colorstr('repo  : ', 'YELLOW') + repo
 	dirname = expanduser('~') + '/workspace/' + string.split(repo, '/')[1] + '/'
 
 	try:
@@ -118,11 +118,11 @@ def exec_git_cmd(repo, cmd):
 		(out, error) = pr.communicate()
 
 	except Exception, e:	
-		print colorstr('error : ' + str(e), 'RED')
+		print colorstr('error : ', 'RED') + str(e)
 		print
 
 	else:
-		print colorstr('out   : '	 + str(out), 'GREEN')
+		print colorstr('out   : ', 'GREEN') + str(out)
 
 
 """ yep, this is main() """

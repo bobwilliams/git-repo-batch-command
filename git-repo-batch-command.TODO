@@ -4,5 +4,5 @@
 ☐ prompt for github huer if config doesn't exist
 ☐ allow config to be passed in
 ☐ use map/reduce
-☐ load config based on __file__ folder
+✔ load config based on __file__ folder @done (13-08-11 18:26)
   

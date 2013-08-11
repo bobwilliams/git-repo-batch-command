@@ -1,20 +1,14 @@
 #!/usr/bin/python
 # encoding: utf-8
 
-# todo: create install script to ensure python modules are installed
-# todo: prompt for github user if config doesn't exist
-# todo: allow config to be passed in
-# todo: use map/reduce ???
-
-
-import requests, subprocess, os, sys, string, getpass, getopt
+import requests, subprocess, os, sys, string, getpass, getopt, os
 from os.path import expanduser
 try:
     import json
 except ImportError:
     import simplejson as json 
 
-CONFIG_LOCATION = "config.json"
+CONFIG_LOCATION = os.path.dirname(os.path.realpath(__file__)) + "/config.json"
 
 
 CODE={

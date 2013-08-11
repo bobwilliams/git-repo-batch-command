@@ -1,0 +1,6 @@
+
+
+☐ create install script to ensure python modules are installed
+☐ prompt for github huer if config doesn't exist
+☐ allow config to be passed in
+☐ use map/reduce
